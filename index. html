@@ -8,7 +8,6 @@
   <style>
     body { font-family: Arial; padding: 20px; text-align: center; background: #1a1a1a; color: white; }
     h1 { color: #00ff88; }
-    button { padding: 12px 24px; background: #00ff88; border: none; border-radius: 8px; font-size: 16px; margin-top: 20px; }
   </style>
 </head>
 <body>
