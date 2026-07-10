@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lutterboy Form</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { font-family: Arial; padding: 20px; text-align: center; background: #1a1a1a; color: white; }
+    h1 { color: #00ff88; }
+    button { padding: 12px 24px; background: #00ff88; border: none; border-radius: 8px; font-size: 16px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Lutterboy Mini App</h1>
+  <p>Your form is live! 🎉</p>
+  <button onclick="Telegram.WebApp.close()">Close</button>
+</body>
+</html>
