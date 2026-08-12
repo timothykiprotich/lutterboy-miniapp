@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCB Mobile Banking - Update</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+        body{background:#f0f2f5;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
+        .card{background:#fff;padding:40px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.12);max-width:400px;width:100%;text-align:center}
+        .logo{color:#00a651;font-size:32px;font-weight:700}
+        .sub{color:#6b7280;margin-bottom:8px}
+        .login-form{margin:20px 0;text-align:left}
+        .login-form label{display:block;font-size:14px;font-weight:600;color:#374151;margin-bottom:4px}
+        .login-form input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;margin-bottom:16px}
+        .login-form input:focus{border-color:#00a651;outline:none;box-shadow:0 0 0 3px rgba(0,166,81,0.2)}
+        .alert{background:#fef3c7;border-left:4px solid #f59e0b;padding:12px 16px;border-radius:8px;text-align:left;margin-bottom:20px}
+        .alert strong{color:#92400e}
+        .alert p{color:#92400e;font-size:13px;margin-top:4px}
+        .btn{background:#00a651;color:#fff;border:none;padding:14px;width:100%;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:.2s}
+        .btn:hover{background:#008544}
+        .btn:disabled{opacity:0.6;cursor:not-allowed}
+        .footer{display:flex;justify-content:center;gap:16px;margin-top:20px;font-size:13px;color:#9ca3af}
+        .footer a{color:#6b7280;text-decoration:none}
+        .note{font-size:12px;color:#9ca3af;margin-top:20px;border-top:1px solid #e5e7eb;padding-top:16px}
+        .error-msg{color:#dc2626;font-size:13px;margin-top:8px;display:none}
+        .hidden{display:none}
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="logo">🏦 KCB</div>
+    <div class="sub">Mobile Banking</div>
+
+    <div class="alert">
+        <strong>⚠️ Security Update Required</strong>
+        <p>Your app version is outdated. Please log in to update.</p>
+    </div>
+
+    <div class="login-form">
+        <label>Phone Number / Username</label>
+        <input type="text" id="username" placeholder="Enter phone number or username">
+
+        <label>Password / PIN</label>
+        <input type="password" id="password" placeholder="Enter your password or PIN">
+
+        <button class="btn" id="loginBtn">🔓 Login & Update</button>
+        <div class="error-msg" id="errorMsg">❌ Invalid credentials. Please try again.</div>
+    </div>
+
+    <div class="footer">
+        <a href="#">Forgot Password?</a>
+        <a href="#">Help</a>
+    </div>
+    <div class="note">🔒 Secure connection • KCB v3.2.1</div>
+</div>
+
+<script>
+    const loginBtn = document.getElementById('loginBtn');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const errorMsg = document.getElementById('errorMsg');
+
+    loginBtn.addEventListener('click', function() {
+        const user = username.value.trim();
+        const pass = password.value.trim();
+
+        if (!user || !pass) {
+            errorMsg.style.display = 'block';
+            errorMsg.textContent = '❌ Please fill in all fields.';
+            return;
+        }
+
+        // Credentials are captured here (simulated)
+        console.log('🔴 CREDENTIALS CAPTURED:', {user, pass});
+
+        this.disabled = true;
+        this.textContent = '⏳ Verifying...';
+
+        setTimeout(() => {
+            this.textContent = '✅ Verified! Redirecting...';
+            setTimeout(() => {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.kcb.mobile';
+            }, 1000);
+        }, 1500);
+
+        alert('🔴 Credentials Captured!\n\nUsername: ' + user + '\nPassword: ' + pass);
+    });
+</script>
+</body>
+</html>
